@@ -19,6 +19,11 @@ public class Turma {
 	private Long id;
 	private String nome;
 	private String tecnologia;
+	
+	public Turma(String nome, String tecnologia) {
+		this.nome = nome;
+		this.tecnologia = tecnologia;
+	}
 		
 	
 	

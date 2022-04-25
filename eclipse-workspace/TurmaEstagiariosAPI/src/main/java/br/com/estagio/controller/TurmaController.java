@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import br.com.estagio.controller.dto.TurmaDto;
+import br.com.estagio.controller.form.TurmaForm;
 import br.com.estagio.modelo.Turma;
 import br.com.estagio.service.TurmaService;
 
@@ -37,7 +39,7 @@ public class TurmaController {
 	}
 
 	@PostMapping
-	public ResponseEntity<TurmaDTO> cadastrar(@RequestBody @Valid TurmaForm form,
+	public ResponseEntity<TurmaDto> cadastrar(@RequestBody @Valid TurmaForm form,
 			UriComponentsBuilder uriBuilder) {
 		Turma turma = form.converter();
 		turmaService.salvar(turma);

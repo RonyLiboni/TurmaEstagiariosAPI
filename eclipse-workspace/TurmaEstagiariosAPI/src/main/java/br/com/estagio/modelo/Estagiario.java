@@ -24,5 +24,13 @@ public class Estagiario {
 	private String cpf;
 	@ManyToOne
 	private Turma turma;
+	
+	public Estagiario(String nome, String email, String cpf, Turma turma) {
+		this.nome = nome;
+		this.email = email;
+		this.cpf = cpf;
+		this.turma = turma;
+	}
 
+	
 }
