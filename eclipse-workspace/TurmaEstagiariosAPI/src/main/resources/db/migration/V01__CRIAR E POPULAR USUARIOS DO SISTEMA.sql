@@ -1,0 +1,24 @@
+CREATE TABLE USUARIO(
+id BIGINT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(255) NOT NULL,
+email VARCHAR(255) NOT NULL,
+senha VARCHAR(255) NOT NULL
+)ENGINE = innodb;
+INSERT INTO USUARIO(id, nome, email, senha) VALUES(1, 'Usuario', 'usuario@gmail.com', '$2a$12$RriZ4kiQJ8jn.QcuZtsmTuWV02e.d9BRqciR1JSK9ruhLu8RZxHHy');
+INSERT INTO USUARIO(id, nome, email, senha) VALUES(2, 'Admin', 'admin@gmail.com', '$2a$12$RriZ4kiQJ8jn.QcuZtsmTuWV02e.d9BRqciR1JSK9ruhLu8RZxHHy');
+
+CREATE TABLE perfil(
+id BIGINT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR (255) NOT NULL
+)ENGINE = innodb;
+INSERT INTO PERFIL(id, nome) VALUES(1, 'ROLE_USUARIO');
+INSERT INTO PERFIL(id, nome) VALUES(2, 'ROLE_ADMIN');
+
+CREATE TABLE USUARIO_PERFIS(
+usuario_id BIGINT,
+perfis_id BIGINT,
+FOREIGN KEY (usuario_id) REFERENCES USUARIO(id),
+FOREIGN KEY (perfis_id) REFERENCES PERFIL(id)
+)ENGINE = innodb;
+INSERT INTO USUARIO_PERFIS(usuario_id, perfis_id) VALUES(1, 1);
+INSERT INTO USUARIO_PERFIS(usuario_id, perfis_id) VALUES(2, 2);

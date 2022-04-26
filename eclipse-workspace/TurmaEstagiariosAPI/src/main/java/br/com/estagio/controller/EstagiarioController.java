@@ -27,7 +27,7 @@ import br.com.estagio.service.EstagiarioService;
 import br.com.estagio.service.TurmaService;
 
 @RestController
-@RequestMapping("/estagiarios")
+@RequestMapping("/estagiario")
 public class EstagiarioController {
 
 	@Autowired

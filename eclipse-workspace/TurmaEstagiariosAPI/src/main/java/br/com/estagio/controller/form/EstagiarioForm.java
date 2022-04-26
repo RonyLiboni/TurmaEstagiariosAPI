@@ -6,7 +6,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import br.com.estagio.controller.anotacao.CPF;
+import br.com.estagio.config.anotacao.CPF;
 import br.com.estagio.modelo.Estagiario;
 import br.com.estagio.modelo.Turma;
 import br.com.estagio.service.TurmaService;
@@ -23,9 +23,9 @@ public class EstagiarioForm {
 	private String nome;
 	@CPF() @NotBlank(message = "CPF é obrigatório")
 	private String cpf;
-	@NotNull @Email (message="Deve colocar um e-mail. Exemplo: rkai@gft.com")
+	@NotNull @Email (message="Deve colocar um e-mail. Exemplo: rony@gmail.com")
 	private String email;
-	@NotNull (message="Informe o id da categoria que o Starter pertence")
+	@NotNull (message="Informe o id da turma que o estagiario pertence")
 	private Long turmaId;
 
 	public Estagiario converter(TurmaService turmaService) {

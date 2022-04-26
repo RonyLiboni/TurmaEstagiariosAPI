@@ -26,7 +26,7 @@ import br.com.estagio.modelo.Turma;
 import br.com.estagio.service.TurmaService;
 
 @RestController
-@RequestMapping("/turmas")
+@RequestMapping("/turma")
 public class TurmaController {
 
 	@Autowired

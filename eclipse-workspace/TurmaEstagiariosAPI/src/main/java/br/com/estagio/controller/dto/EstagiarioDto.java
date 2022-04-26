@@ -16,7 +16,6 @@ public class EstagiarioDto {
 	private Long id;
 	private String nome;
 	private String cpf;
-	private String quatroLetras;
 	private String email;
 	private Turma categoria;
 

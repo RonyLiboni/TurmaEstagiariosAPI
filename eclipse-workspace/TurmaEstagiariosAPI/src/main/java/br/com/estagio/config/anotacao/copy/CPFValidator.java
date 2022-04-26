@@ -1,4 +1,4 @@
-package br.com.estagio.controller.anotacao;
+package br.com.estagio.config.anotacao.copy;
 
 import java.util.InputMismatchException;
 

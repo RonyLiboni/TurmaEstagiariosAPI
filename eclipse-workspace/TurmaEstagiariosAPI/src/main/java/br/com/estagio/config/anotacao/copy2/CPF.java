@@ -1,4 +1,4 @@
-package br.com.estagio.controller.anotacao;
+package br.com.estagio.config.anotacao.copy2;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
