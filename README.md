@@ -5,6 +5,8 @@
     - Perfil
     - Turma
     - Estagiario
+    
+- Utilizei Lombok, para executar esse programa você precisa ter ele instalado em sua IDE.
 
 - Há dois usuarios cadastrados.
     
