@@ -8,7 +8,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import br.com.estagio.config.ApplicationConfigTest;
 import br.com.estagio.controller.form.LoginForm;
 
-public class AutenticacaoControllerTes extends ApplicationConfigTest {
+public class AutenticacaoControllerTest extends ApplicationConfigTest {
 	
 	@Test
 	public void deveRetornarBadRequest_QuandoDadosDeAutenticacaoEstiveremIncorretos() throws Exception {
@@ -65,10 +65,7 @@ public class AutenticacaoControllerTes extends ApplicationConfigTest {
 	}
 	
 	private String usuarioFormComDadosNulos() throws Exception {
-		LoginForm loginForm = new LoginForm();
-		loginForm.setUsuario(null);
-		loginForm.setSenha(null);
-		return objectMapper.writeValueAsString(loginForm);
+		return objectMapper.writeValueAsString(new LoginForm());
 	}
 	
 }

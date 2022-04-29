@@ -13,6 +13,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 @RestControllerAdvice
 public class ErroDeValidacaoHandler {
@@ -41,5 +42,10 @@ public class ErroDeValidacaoHandler {
 		return "Você tentou cadastrar/atualizar um estagiario com uma turma que não existe";
 	}
 	
+	@ResponseStatus(code = HttpStatus.NOT_FOUND)
+	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
+	public String handle(MethodArgumentTypeMismatchException exception) {
+		return "O Id deve conter apenas números";
+	}
 
 }

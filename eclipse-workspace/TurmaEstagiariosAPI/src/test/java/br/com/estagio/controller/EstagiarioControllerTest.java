@@ -7,13 +7,13 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import br.com.estagio.config.ApplicationConfigTest;
-import br.com.estagio.controller.form.TurmaForm;
- 
+import br.com.estagio.controller.form.EstagiarioForm;
+
 @ActiveProfiles("testes")
-class TurmaControllerTest extends ApplicationConfigTest {
-	
-	private final String uri="/turma";
-	private final String uriId="/turma/{id}";
+class EstagiarioControllerTest extends ApplicationConfigTest {
+
+	private final String uri="/estagiario";
+	private final String uriId="/estagiario/{id}";
 	
 	@Test
 	public void deveRetornarOK_QuandoPedirParaListar() throws Exception {	
@@ -46,8 +46,8 @@ class TurmaControllerTest extends ApplicationConfigTest {
 	}
 		
 	@Test
-	public void deveRetornarCreated_QuandoForCadastrarUmaTurma() throws Exception {
-		String json = turmaFormComDadosCorretos();
+	public void deveRetornarCreated_QuandoForCadastrarUmEstagiario() throws Exception {
+		String json = estagiarioFormComDadosCorretos();
 		
 		mockMvc
 		.perform(MockMvcRequestBuilders
@@ -60,8 +60,8 @@ class TurmaControllerTest extends ApplicationConfigTest {
 	}
 	
 	@Test
-	public void deveRetornarBadRequest_QuandoForCadastrarUmaTurmaEUmOuMaisDadosEstiveremInvalidos() throws Exception {
-		String json = turmaFormComDadosNulos();
+	public void deveRetornarBadRequest_QuandoForCadastrarUmEstagiarioEUmOuMaisDadosEstiveremInvalidos() throws Exception {
+		String json = estagiarioFormComDadosNulos();
 		mockMvc
 		.perform(MockMvcRequestBuilders
 				.post(uri)
@@ -73,8 +73,8 @@ class TurmaControllerTest extends ApplicationConfigTest {
 	}
 	
 	@Test
-	public void deveRetornarBadRequest_QuandoForAtualizarUmaTurmaEUmOuMaisDadosEstiveremInvalidos() throws Exception {
-		String json = turmaFormComDadosNulos();
+	public void deveRetornarBadRequest_QuandoForAtualizarUmEstagiarioEUmOuMaisDadosEstiveremInvalidos() throws Exception {
+		String json = estagiarioFormComDadosNulos();
 		mockMvc
 		.perform(MockMvcRequestBuilders
 				.put(uriId, 1)
@@ -86,8 +86,8 @@ class TurmaControllerTest extends ApplicationConfigTest {
 	}
 		
 	@Test
-	public void deveRetornarOK_QuandoForAtualizarUmaTurma() throws Exception {
-		String json = turmaFormComDadosCorretos();
+	public void deveRetornarOK_QuandoForAtualizarUmEstagiario() throws Exception {
+		String json = estagiarioFormComDadosCorretos();
 				
 		mockMvc
 		.perform(MockMvcRequestBuilders
@@ -100,8 +100,8 @@ class TurmaControllerTest extends ApplicationConfigTest {
 	}
 	
 	@Test
-	public void deveRetornarNotFound_QuandoForAtualizarUmaTurmaComIdQueNaoExiste() throws Exception {
-		String json = turmaFormComDadosCorretos();
+	public void deveRetornarNotFound_QuandoForAtualizarUmEstagiarioComIdQueNaoExiste() throws Exception {
+		String json = estagiarioFormComDadosCorretos();
 		
 		mockMvc
 		.perform(MockMvcRequestBuilders
@@ -133,15 +133,17 @@ class TurmaControllerTest extends ApplicationConfigTest {
 				.isNotFound());
 	}
 	
-	private String turmaFormComDadosCorretos() throws Exception {
-		TurmaForm turmaForm = new TurmaForm();
-		turmaForm.setNome("Turma teste");
-		turmaForm.setTecnologia("Java Teste");
-		return objectMapper.writeValueAsString(turmaForm);
+	private String estagiarioFormComDadosCorretos() throws Exception {
+		EstagiarioForm estagiarioForm = new EstagiarioForm();
+		estagiarioForm.setNome("Naruto na Akatsuki");
+		estagiarioForm.setCpf("089.378.990-94");
+		estagiarioForm.setEmail("teste@teste.com");
+		estagiarioForm.setTurmaId(1L);
+		return objectMapper.writeValueAsString(estagiarioForm);
 	}
 	
-	private String turmaFormComDadosNulos() throws Exception {
-		return objectMapper.writeValueAsString(new TurmaForm());
+	private String estagiarioFormComDadosNulos() throws Exception {
+		return objectMapper.writeValueAsString(new EstagiarioForm());
 	}
 	
 
