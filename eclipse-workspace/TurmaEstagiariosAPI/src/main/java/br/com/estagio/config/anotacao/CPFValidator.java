@@ -6,22 +6,13 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 public class CPFValidator implements ConstraintValidator<CPF, String>{
-	private CPF annotation;
-
-	public void initialize(CPF annotation) {
-		this.annotation = annotation;
-	}
 
 	public boolean isValid(String cpf, ConstraintValidatorContext context) {
+		if(cpf==null) return false;
+		
 		cpf = cpf.replace(".", "");
 		cpf = cpf.replace("-","");
-		if (cpf == null || cpf.isEmpty()) {
-			if (annotation.required()) {
-				return false;
-			} else {
-				return true;
-			}
-		}
+		
 		// considera-se erro CPF's formados por uma sequencia de numeros iguais
         if (cpf.equals("00000000000") || cpf.equals("11111111111") ||
             cpf.equals("22222222222") || cpf.equals("33333333333") ||

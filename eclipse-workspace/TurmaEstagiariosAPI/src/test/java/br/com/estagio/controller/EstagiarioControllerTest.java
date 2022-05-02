@@ -84,6 +84,19 @@ class EstagiarioControllerTest extends ApplicationConfigTest {
 				.status()
 				.isBadRequest());
 	}
+	
+	@Test
+	public void deveRetornarBadRequest_QuandoForAtualizarUmEstagiarioCPFEstiverInvalido() throws Exception {
+		String json = estagiarioFormComCpfInvalido();
+		mockMvc
+		.perform(MockMvcRequestBuilders
+				.put(uriId, 1)
+				.content(json)
+				.contentType(MediaType.APPLICATION_JSON))
+		.andExpect(MockMvcResultMatchers
+				.status()
+				.isBadRequest());
+	}
 		
 	@Test
 	public void deveRetornarOK_QuandoForAtualizarUmEstagiario() throws Exception {
@@ -144,6 +157,12 @@ class EstagiarioControllerTest extends ApplicationConfigTest {
 	
 	private String estagiarioFormComDadosNulos() throws Exception {
 		return objectMapper.writeValueAsString(new EstagiarioForm());
+	}
+	
+	private String estagiarioFormComCpfInvalido() throws Exception {
+		EstagiarioForm estagiarioForm = new EstagiarioForm();
+		estagiarioForm.setCpf("089909");
+		return objectMapper.writeValueAsString(estagiarioForm);
 	}
 	
 
