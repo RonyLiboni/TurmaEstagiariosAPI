@@ -20,6 +20,8 @@
         - senha: 123456
         - Tem acesso somente ao POST /auth, e a todos métodos GET
 
+## Controllers estão com testes automatizados utilizando MockMvc
+## @Profiles utilizado para separar ambiente de teste do ambiente de producao (testes não precisam de autenticacao para acessarem as controllers)
 
 #  Endpoints que Admin e usuario comum tem acesso antes de se autenticarem
 
